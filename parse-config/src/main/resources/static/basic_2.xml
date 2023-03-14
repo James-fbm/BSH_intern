@@ -1,0 +1,63 @@
+<IABO_Config>
+    <UIM-Domain_IABO_PS>
+        <InputUnits>
+            <Buttons>
+                <TouchButtons>
+
+                </TouchButtons>
+            </Buttons>
+        </InputUnits>
+        <OutputUnits>
+            <LEDs>
+                <PhysicalLEDs>
+
+                </PhysicalLEDs>
+                <VirtualSegments>
+
+                </VirtualSegments>
+            </LEDs>
+        </OutputUnits>
+    </UIM-Domain_IABO_PS>
+    <UIM-Domain_IABO_OS>
+        <InputUnits>
+            <Buttons>
+                <MechanicalButtons/>
+                <TouchButtons>
+
+                </TouchButtons>
+            </Buttons>
+        </InputUnits>
+        <OutputUnits>
+            <LEDs>
+                <PhysicalLEDs>
+
+                </PhysicalLEDs>
+                <VirtualSegments>
+
+                </VirtualSegments>
+            </LEDs>
+        </OutputUnits>
+    </UIM-Domain_IABO_OS>
+    <UIM-Domain_only>
+        <InputUnits>
+            <Buttons>
+                <ButtonFunctions>
+
+                </ButtonFunctions>
+            </Buttons>
+        </InputUnits>
+        <OutputUnits>
+            <LEDs>
+                <LEDFunctionMappingSimple>
+
+                </LEDFunctionMappingSimple>
+                <LEDFunctionMappingExtended>
+
+                </LEDFunctionMappingExtended>
+                <LEDFunctionMappingVariable>
+
+                </LEDFunctionMappingVariable>
+            </LEDs>
+        </OutputUnits>
+    </UIM-Domain_only>
+</IABO_Config>

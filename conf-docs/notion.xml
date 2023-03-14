@@ -1,0 +1,205 @@
+<UIM-Domain_IABO_common>
+
+    <description>
+    <version major="" minor="" revision=""> <!-- 版本号, 1(major).0(minor).0(revision) -->
+
+    <LEDModes>
+    <!-- 每个ledmode都描述了一组led的闪烁变化（包括亮度和时间间隔）特征，并为每一个mode命名 -->
+        <LEDModesFix>
+        <!-- 这一部分是预先设定好的mode，写死 -->
+        [
+            <LedMode name="" id="" />
+        ]
+        <LEDModesBin>
+        <!-- 额外定义的mode -->
+        [
+            <LedModeDefinition>
+                <LedMode name="" id="" />
+                <LedModeConfig repititions="" sync="" brightnessInitial="">
+                    <LedModeConfigEntries>
+                    [
+                        <LedModeConfigEntry entryId="" TransitionTime="" BrightnessEnd="" />
+                    ]
+        ]            
+        <LEDModesCustom>
+        <!-- 自定义的mode? 不知道和上面的Bin有何区别 -->
+        [
+            <LedModeDefinition>
+                <LedMode name="" id="" />
+                <LedModeConfig repititions="" sync="" brightnessInitial="">
+                    <LedModeConfigEntries>
+                    [
+                        <LedModeConfigEntry entryId="" TransitionTime="" BrightnessEnd="" />
+                    ]
+        ]
+    <PhysicalAnimations>
+    [
+        <Unit name="" hwId="" />
+    ]
+
+    <ButtonModes>
+    [
+        <ButtonMode name="" id="" eventType="" duration="" />
+    ]
+
+<!-- ............................................................................................ -->
+<!-- ............................................................................................ -->
+
+<UIM-Domain_IABO_PS>
+
+    <description>
+    <version major="" minor="" revision="" />
+    <GeneralData operatingModulename="" nodeDBus2="" />
+
+    <InputUnits>
+        <Buttons>
+            <TouchButtons>
+            [
+                <Unit name="" hwId="" />
+            ]
+        <Sliders>
+            <Slider sliderName="">
+            [
+                <Unit name="" />
+            ]
+
+    <OutputUnits>
+        <LEDs>
+            <PhysicalLEDs>
+            [
+                <Unit name="" hwId="" />
+            ]
+        <PhysicalAnimations>
+        [
+            <Unit name="" hwId="" />
+        ]
+
+    <SliderModes>
+        <SliderMode name="AbsolutMode">
+        [
+            <Progress name="" TouchAreaBegin="" TouchAreaEnd="" />
+        ]
+        <SliderMode name="IncrementMode" step="" />
+
+
+
+<!-- ............................................................................................ -->
+<!-- ............................................................................................ -->
+
+<UIM-Domain_IABO_OS>
+
+    <description>
+    <version major="" minor="" revision="" />
+    <GeneralData operatingModulename="" nodeDBus2="" />
+    
+    <SoundModes>
+    [
+        <SoundMode name="" id="" />
+    ]
+
+    <InputUnits>
+        <Buttons>
+            <MechanicalButtons />
+            <TouchButtons>
+            [
+                <Unit name="" hwId="" />
+            ]
+    
+    <OutputUnits>
+        <LEDs>
+            <PhysicalLEDs>
+            [
+                <Unit name="" hwId="" />
+            ]
+            <VirtualSegments>
+            [
+                <VirtualSegment name="">
+                [
+                    <PhysicalUnit name="" />
+                ]
+            ]
+        <PhysicalAnimations>
+        [
+            <Unit name="" hwId="" />
+        ]
+
+<!-- ............................................................................................ -->
+<!-- ............................................................................................ -->
+
+<UIM-Domain_only>
+
+    <description>
+    <version major="" minor="" revision="" />
+
+    <InputUnits>
+        <Buttons>
+            <ButtonFunctions>
+            [
+                <ButtonMapping name="" unitname="" buttonMode="" />
+            ]
+        <Encoders>
+            <Slider>
+                <SliderFunctions>
+                    <SliderMapping name="" unitname="" />
+        <Layouts>
+        [
+            <Layout name="">
+            [
+                <LayoutItem name="" />
+            ]
+        ]
+
+    <OutputUnits>
+        <LEDs>
+            <LEDFunctionMappingSimple>
+            <!-- 只需要一个led便能够实现的功能 -->
+            <!-- OS部分？ -->
+            [
+                <LEDFunction name="" unitname="" ledMode="" />
+            ]
+            <LEDFunctionMappingExtended>
+            <!-- 需要一个或多个led方能实现的功能 -->
+            <!-- PS部分？ -->
+            <!-- 划分为三组功能 -->
+            <!-- LED functions for programs -->
+            <!-- LED functions for lightring -->
+            <!-- Fixed Function LEDS -->
+            [
+                <LEDFunctionExtended name="">
+                [
+                    <LED name="" unitname="" ledMode="" />
+                ]
+            ]
+            <LEDFunctionMappingVariable>
+            <!-- 需要一个或多个led方能实现的功能 -->
+            <!-- OS部分？ -->
+            <!-- 一个ledfunctionvariable可以包含多个可选的ledfunctionextended? -->
+            [
+                <LEDFunctionVariable name="">
+                [
+                    <LEDFunctionExtended name="">
+                    [
+                        <LED name="" unitname="" ledMode="" />
+                    ]
+                ]
+            ]
+            <LEDFunctionMappingLayout layoutname="">
+            <!-- 需要一个或多个led方能实现的功能 -->
+            <!-- OS部分？ -->
+            <!-- layout指的是啥？ -->
+            [
+                <LEDFunctionExtended name="">
+                [
+                    <LED name="" unitname="" ledMode="" />
+                ]
+            ]
+        <Sounds>
+            <SoundFunctionMapping>
+            [
+                <SoundFunction name="" soundmode="" />
+            ]
+
+        <Animations>
+        [
+            <AnimationFunction name="" unitname="" />
+        ]

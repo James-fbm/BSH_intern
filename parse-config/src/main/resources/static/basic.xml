@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- must be put in json-file on level null -->
+<!-- abstract> -->
+<!-- name>IABO Configuration File</name -->
+<!-- description>MP15 PS Siemens </description -->
+<!-- techReleaseNotes>Draft for IABO configuration file</techReleaseNotes -->
+<!-- material>1234567890</material -->
+<!-- uid>12345</uid -->
+<!-- version major="1" minor="0" revision="0"/ -->
+<!-- /abstract -->
+
+<IABO_Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- xsi:noNamespaceSchemaLocation="IABOcfg.xsd" -->
+    <UIM-Domain_IABO_common>
+        <description>MP15 Ps Bosch PS OS</description>
+        <version major="1" minor="0" revision="0"/>
+        <LEDModes>
+            <LEDModesFix>
+                <!--Predefined led mode in IABO, do NOT change them-->
+                <LedMode name="Off" id="0"/>
+                <LedMode name="On" id="1"/>
+                <LedMode name="FlashRate_1" id="2"/>
+                <LedMode name="FlashRate_2" id="3"/>
+                <LedMode name="FlashRate_3" id="4"/>
+                <LedMode name="FlashRate_4" id="5"/>
+                <LedMode name="FlashRate_5" id="6"/>
+            </LEDModesFix>
+            <LEDModesBin>
+                <LedModeDefinition>
+                    <!-- only one LedMode and LedModeConfig per LEDModeDefinition /-->
+                    <LedMode name="FlashRate_6" id="7"/>
+                    <LedModeConfig repetitions="255" sync="1" brightnessInitial="50">
+                        <LedModeConfigEntries>
+                            <!-- number of entries min=1 max=9/-->
+                            <LedModeConfigEntry entryId="0" TransitionTime="500" BrightnessEnd="50"/>
+                            <LedModeConfigEntry entryId="1" TransitionTime="0" BrightnessEnd="100"/>
+                            <LedModeConfigEntry entryId="2" TransitionTime="500" BrightnessEnd="100"/>
+                        </LedModeConfigEntries>
+                    </LedModeConfig>
+                </LedModeDefinition>
+            </LEDModesBin>
+            <LEDModesCustom>
+                <LedModeDefinition>
+                    <!--Customer defined led mode/-->
+                    <!-- only one LedMode and LedModeConfig per LEDModeDefinition /-->
+                    <LedMode name="Dimming" id="9"/>
+                    <LedModeConfig repetitions="0" sync="1" brightnessInitial="50">
+                        <LedModeConfigEntries>
+                            <!-- number of entries min=1 max=81/-->
+                            <LedModeConfigEntry entryId="0" TransitionTime="0" BrightnessEnd="50"/>
+                        </LedModeConfigEntries>
+                    </LedModeConfig>
+                </LedModeDefinition>
+            </LEDModesCustom>
+        </LEDModes>
+        <PhysicalAnimations>
+            <!-- no animation -->
+            <Unit name="Off" hwId="0x00"/>
+            <!-- SE -->
+            <Unit name="StartUpAttraction_1" hwId="0x02"/>
+            <!-- for not use now
+            <Unit name="FunctionPhase_1" hwId="0x02"/>
+            <Unit name="FirmwareUpdate_1" hwId="0x05"/>
+            -->
+            <!-- BO -->
+            <Unit name="StartUpAttraction_2" hwId="0x06"/>
+            <!-- for not use now
+            <Unit name="FunctionPhase_2" hwId="0x07"/>
+            <Unit name="FirmwareUpdate_2" hwId="0x0A"/>
+            -->
+            <!-- GA -->
+            <!--Unit name="StartUpAttraction_3"  hwId="0x0B"/ -->
+            <!--Unit name="FunctionPhase_3"  hwId="0x0C"/ -->
+            <!--Unit name="FirmwareUpdate_3"  hwId="0x0F"/ -->
+        </PhysicalAnimations>
+        <ButtonModes>
+            <ButtonMode name="ShortPress1" id="0" eventType="0x00" duration="100"/>
+            <ButtonMode name="LongPress1" id="1" eventType="0x01" duration="500"/>
+            <!--ButtonMode name="ShortPress2" id="2" eventType="0x00" duration="200" repetitions="10" RepeatDuration=="1000"/-->
+            <!--ButtonMode name="LongPress2" id="3" eventType="0x01" duration="500" repetitions="10" RepeatDuration=="1000"/-->
+        </ButtonModes>
+    </UIM-Domain_IABO_common>
+    <UIM-Domain_IABO_PS>
+        <description>MP15 Ps Bosch PS</description>
+        <version major="1" minor="0" revision="0"/>
+        <GeneralData operatingModulename="LC_UIM_MP15_01_04" nodeDBus2="0x22"/>
+        <InputUnits>
+            <Buttons>
+                <TouchButtons>
+
+                </TouchButtons>
+            </Buttons>
+            <Sliders>
+                <Slider sliderName="Slider_000">
+                    <Unit name="PS_Btn_1"/>
+                    <Unit name="PS_Btn_2"/>
+                    <Unit name="PS_Btn_3"/>
+                    <Unit name="PS_Btn_4"/>
+                    <Unit name="PS_Btn_5"/>
+                    <Unit name="PS_Btn_6"/>
+                    <Unit name="PS_Btn_7"/>
+                    <Unit name="PS_Btn_8"/>
+                </Slider>
+            </Sliders>
+        </InputUnits>
+        <OutputUnits>
+            <LEDs>
+                <PhysicalLEDs>
+
+                </PhysicalLEDs>
+                <VirtualSegments>
+
+                </VirtualSegments>
+            </LEDs>
+            <PhysicalAnimations>
+                <!-- SE -->
+                <Unit name="ProgramRunningScreen_1" hwId="0x03"/>
+                <!-- BO -->
+                <Unit name="ProgramRunningScreen_2" hwId="0x08"/>
+                <!-- GA -->
+                <!-- Unit name="ProgramRunningScreen_3" hwId="0x0D"/ -->
+            </PhysicalAnimations>
+        </OutputUnits>
+        <SliderModes>
+            <SliderMode name="AbsolutMode">
+                <!-- areas must be recalculated -->
+                <Progress name="PS_SliPos_01" TouchAreaBegin="0x00" TouchAreaEnd="0x0D"/>
+                <Progress name="PS_SliPos_02" TouchAreaBegin="0x0D" TouchAreaEnd="0x13"/>
+                <Progress name="PS_SliPos_03" TouchAreaBegin="0x13" TouchAreaEnd="0x19"/>
+                <Progress name="PS_SliPos_04" TouchAreaBegin="0x19" TouchAreaEnd="0x1F"/>
+                <Progress name="PS_SliPos_05" TouchAreaBegin="0x1F" TouchAreaEnd="0x26"/>
+                <Progress name="PS_SliPos_06" TouchAreaBegin="0x26" TouchAreaEnd="0x2C"/>
+                <Progress name="PS_SliPos_07" TouchAreaBegin="0x2C" TouchAreaEnd="0x32"/>
+                <Progress name="PS_SliPos_08" TouchAreaBegin="0x32" TouchAreaEnd="0x38"/>
+                <Progress name="PS_SliPos_09" TouchAreaBegin="0x38" TouchAreaEnd="0x3F"/>
+                <Progress name="PS_SliPos_10" TouchAreaBegin="0x3F" TouchAreaEnd="0x45"/>
+                <Progress name="PS_SliPos_11" TouchAreaBegin="0x45" TouchAreaEnd="0x4B"/>
+                <Progress name="PS_SliPos_12" TouchAreaBegin="0x4B" TouchAreaEnd="0x51"/>
+                <Progress name="PS_SliPos_13" TouchAreaBegin="0x51" TouchAreaEnd="0x58"/>
+                <Progress name="PS_SliPos_14" TouchAreaBegin="0x58" TouchAreaEnd="0x64"/>
+            </SliderMode>
+            <SliderMode name="IncrementMode" step="1"/>
+        </SliderModes>
+    </UIM-Domain_IABO_PS>
+    <UIM-Domain_IABO_OS>
+        <description>MP15 Ps Washer Siemens Bosch OS</description>
+        <version major="1" minor="0" revision="0"/>
+        <GeneralData operatingModulename="LC_UIM_MP15_02_03" nodeDBus2="0x21"/>
+        <SoundModes>
+            <!--Predefined sound in IABO, do NOT change them-->
+            <SoundMode name="NoSound" id="0"/>
+            <!-- SE -->
+            <SoundMode name="SelectionNotAllowed_1" id="1"/>
+            <SoundMode name="SoundModeActivated_1" id="2"/>
+            <SoundMode name="SoundModeDeactivated_1" id="3"/>
+            <SoundMode name="SwitchOn_1" id="4"/>
+            <SoundMode name="SwitchOff_1" id="5"/>
+            <SoundMode name="SelectionDeselection_1" id="6"/>
+            <SoundMode name="Error_1" id="7"/>
+            <SoundMode name="WarningMalfunction_1" id="8"/>
+            <SoundMode name="Finish_1" id="9"/>
+            <SoundMode name="Information_1" id="10"/>
+            <SoundMode name="SnapSignalSliding_1" id="11"/>
+            <SoundMode name="ShortPress_1" id="12"/>
+            <!-- BO -->
+            <SoundMode name="SelectionNotAllowed_2" id="13"/>
+            <SoundMode name="SoundModeActivated_2" id="14"/>
+            <SoundMode name="SoundModeDeactivated_2" id="15"/>
+            <SoundMode name="SwitchOn_2" id="16"/>
+            <SoundMode name="SwitchOff_2" id="17"/>
+            <SoundMode name="SelectionDeselection_2" id="18"/>
+            <SoundMode name="Error_2" id="19"/>
+            <SoundMode name="WarningMalfunction_2" id="20"/>
+            <SoundMode name="Finish_2" id="21"/>
+            <SoundMode name="Information_2" id="22"/>
+            <SoundMode name="SnapSignalSliding_2" id="23"/>
+            <SoundMode name="ShortPress_2" id="24"/>
+            <!-- GA -->
+            <!-- SoundMode name="SelectionNotAllowed_3" id="25"/>
+            <SoundMode name="SoundModeActivated_3" id="26"/>
+            <SoundMode name="SoundModeDeactivated_3" id="27"/>
+            <SoundMode name="SwitchOn_3" id="28"/>
+            <SoundMode name="SwitchOff_3" id="29"/>
+            <SoundMode name="SelectionDeselection_3" id="30"/>
+            <SoundMode name="Error_3" id="31"/>
+            <SoundMode name="WarningMalfunction_3" id="32"/>
+            <SoundMode name="Finish_3" id="33"/>
+            <SoundMode name="Information_3" id="34"/>
+            <SoundMode name="SnapSignalSliding_3" id="35"/>
+            <SoundMode name="ShortPress_3" id="36"/ -->
+            <!--Customer defined sound modes/-->
+            <!--SoundMode name="BeepBeep" id="37" repetitions="0" sync="1" Frequency_00="440" Duration_00="100" Volume_00="100" Frequency_01="493" Duration_01="100" Volume_01="100"/-->
+        </SoundModes>
+        <InputUnits>
+            <Buttons>
+                <MechanicalButtons/>
+                <TouchButtons>
+
+                </TouchButtons>
+            </Buttons>
+        </InputUnits>
+        <OutputUnits>
+            <LEDs>
+                <PhysicalLEDs>
+
+                </PhysicalLEDs>
+                <VirtualSegments>
+
+                </VirtualSegments>
+            </LEDs>
+            <PhysicalAnimations>
+                <!-- SE -->
+                <Unit name="ProcessOngoing_1" hwId="0x04"/>
+                <!-- BO -->
+                <Unit name="ProcessOngoing_2" hwId="0x08"/>
+                <!-- GA -->
+                <!-- Unit name="ProcessOngoing_3" hwId="0x0E"/ -->
+            </PhysicalAnimations>
+        </OutputUnits>
+    </UIM-Domain_IABO_OS>
+    <UIM-Domain_only>
+        <description>MP15 Ps Washer Bosch</description>
+        <version major="1" minor="0" revision="0"/>
+        <InputUnits>
+            <!-- Maps a fixed or variable logical input to a physical button-->
+            <Buttons>
+                <ButtonFunctions>
+
+                </ButtonFunctions>
+            </Buttons>
+            <Encoders>
+                <Slider>
+                    <SliderFunctions>
+                        <SliderMapping name="ProgramSelector01" unitname="PS_SliPos_01" />
+                        <SliderMapping name="ProgramSelector02" unitname="PS_SliPos_02" />
+                        <SliderMapping name="ProgramSelector03" unitname="PS_SliPos_03" />
+                        <SliderMapping name="ProgramSelector04" unitname="PS_SliPos_04" />
+                        <SliderMapping name="ProgramSelector05" unitname="PS_SliPos_05" />
+                        <SliderMapping name="ProgramSelector06" unitname="PS_SliPos_06" />
+                        <SliderMapping name="ProgramSelector07" unitname="PS_SliPos_07" />
+                        <SliderMapping name="ProgramSelector08" unitname="PS_SliPos_08" />
+                        <SliderMapping name="ProgramSelector09" unitname="PS_SliPos_09" />
+                        <SliderMapping name="ProgramSelector10" unitname="PS_SliPos_10" />
+                        <SliderMapping name="ProgramSelector11" unitname="PS_SliPos_11" />
+                        <SliderMapping name="ProgramSelector12" unitname="PS_SliPos_12" />
+                        <SliderMapping name="ProgramSelector13" unitname="PS_SliPos_13" />
+                        <SliderMapping name="ProgramSelector14" unitname="PS_SliPos_14" />
+                    </SliderFunctions>
+                </Slider>
+            </Encoders>
+            <Layouts>
+                <Layout name="ProgramsLayout">
+                    <!--To be removed after UI Logic app read from domain interface/-->
+                    <LayoutItem name="ProgramSelector01"/>
+                    <LayoutItem name="ProgramSelector02"/>
+                    <LayoutItem name="ProgramSelector03"/>
+                    <LayoutItem name="ProgramSelector04"/>
+                    <LayoutItem name="ProgramSelector05"/>
+                    <LayoutItem name="ProgramSelector06"/>
+                    <LayoutItem name="ProgramSelector07"/>
+                    <LayoutItem name="ProgramSelector08"/>
+                    <LayoutItem name="ProgramSelector09"/>
+                    <LayoutItem name="ProgramSelector10"/>
+                    <LayoutItem name="ProgramSelector11"/>
+                    <LayoutItem name="ProgramSelector12"/>
+                    <LayoutItem name="ProgramSelector13"/>
+                    <LayoutItem name="ProgramSelector14"/>
+                </Layout>
+                <Layout name="StainsLayout">
+                    <LayoutItem name="Position06"/>
+                    <LayoutItem name="Position05"/>
+                    <LayoutItem name="Position04"/>
+                    <LayoutItem name="Position03"/>
+                    <LayoutItem name="Position02"/>
+                    <LayoutItem name="Position01"/>
+                </Layout>
+                <Layout name="MoreLayout">
+                    <LayoutItem name="VariableFunctionKey01"/>
+                    <LayoutItem name="VariableFunctionKey02"/>
+                    <LayoutItem name="VariableFunctionKey03"/>
+                    <LayoutItem name="VariableFunctionKey04"/>
+                    <LayoutItem name="BasicSetup.toggle"/>
+                    <LayoutItem name="ChildLock.toggle"/>
+                </Layout>
+                <!-- Layout name="ProgramsLayout" -->
+            </Layouts>
+        </InputUnits>
+        <OutputUnits>
+            <!-- Maps a fixed or variable function to a physical output -->
+            <LEDs>
+                <LEDFunctionMappingSimple>
+
+                </LEDFunctionMappingSimple>
+                <LEDFunctionMappingExtended>
+
+                </LEDFunctionMappingExtended>
+                <LEDFunctionMappingVariable>
+                    <!-- VariableFunctions -->
+                </LEDFunctionMappingVariable>
+                <LEDFunctionMappingLayout>
+                    <!-- both lines moved to variable functions stains.next -->
+                    <!-- LED name="Button.selectable" unitname="OS_LED_20_W" ledMode="On"/ -->
+                    <!-- LED name="Button.selected" unitname="OS_LED_20_W" ledMode="On"/ -->
+                    <!-- is OP_KEY_08 -->
+                    <LEDFunctionExtended name="Position01">
+                        <LED name="Symbol.selectable" unitname="OS_LED_19_R" ledMode="Dimming"/>
+                        <LED name="Symbol.selected" unitname="OS_LED_19_R" ledMode="On"/>
+                    </LEDFunctionExtended>
+                    <LEDFunctionExtended name="Position02">
+                        <LED name="Symbol.selectable" unitname="OS_LED_18_R" ledMode="Dimming"/>
+                        <LED name="Symbol.selected" unitname="OS_LED_18_R" ledMode="On"/>
+                    </LEDFunctionExtended>
+                    <LEDFunctionExtended name="Position03">
+                        <LED name="Symbol.selectable" unitname="OS_LED_17_R" ledMode="Dimming"/>
+                        <LED name="Symbol.selected" unitname="OS_LED_17_R" ledMode="On"/>
+                    </LEDFunctionExtended>
+                    <LEDFunctionExtended name="Position04">
+                        <LED name="Symbol.selectable" unitname="OS_LED_16_R" ledMode="Dimming"/>
+                        <LED name="Symbol.selected" unitname="OS_LED_16_R" ledMode="On"/>
+                    </LEDFunctionExtended>
+                    <LEDFunctionExtended name="Position05">
+                        <LED name="Symbol.selectable" unitname="OS_LED_15_R" ledMode="Dimming"/>
+                        <LED name="Symbol.selected" unitname="OS_LED_15_R" ledMode="On"/>
+                    </LEDFunctionExtended>
+                    <LEDFunctionExtended name="Position06">
+                        <LED name="Symbol.selectable" unitname="OS_LED_14_R" ledMode="Dimming"/>
+                        <LED name="Symbol.selected" unitname="OS_LED_14_R" ledMode="On"/>
+                    </LEDFunctionExtended>
+                </LEDFunctionMappingLayout>
+            </LEDs>
+            <Sounds>
+                <SoundFunctionMapping>
+                    <!-- BO -->
+                    <SoundFunction name="SelectionNotAllowed" soundmode="SelectionNotAllowed_2"/>
+                    <SoundFunction name="SoundModeActivated" soundmode="SoundModeActivated_2"/>
+                    <SoundFunction name="SoundModeDeactivated" soundmode="SoundModeDeactivated_2"/>
+                    <SoundFunction name="SwitchOn" soundmode="SwitchOn_2"/>
+                    <SoundFunction name="SwitchOff" soundmode="SwitchOff_2"/>
+                    <SoundFunction name="SelectionDeselection" soundmode="SelectionDeselection_2"/>
+                    <SoundFunction name="Error" soundmode="Error_2"/>
+                    <SoundFunction name="WarningMalfunction" soundmode="WarningMalfunction_2"/>
+                    <SoundFunction name="Finish" soundmode="Finish_2"/>
+                    <SoundFunction name="Information" soundmode="Information_2"/>
+                    <SoundFunction name="SnapSignalSliding" soundmode="SnapSignalSliding_2"/>
+                    <SoundFunction name="ShortPress" soundmode="ShortPress_2"/>
+                </SoundFunctionMapping>
+            </Sounds>
+            <Animations>
+                <!-- BO -->
+                <AnimationFunction name="StartUpAttraction" unitname="StartUpAttraction_2"/>
+                <AnimationFunction name="ProcessOngoing" unitname="ProcessOngoing_2"/>
+                <AnimationFunction name="ProgramRunningScreen" unitname="ProgramRunningScreen_2"/>
+                <!-- BO
+                <AnimationFunction name="FunctionPhase" unitname="FunctionPhase_2"/>
+                <AnimationFunction name="FirmwareUpdate" unitname="FirmwareUpdate_2"/>-->
+            </Animations>
+        </OutputUnits>
+    </UIM-Domain_only>
+</IABO_Config>

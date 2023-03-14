@@ -1,0 +1,1504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- must be put in json-file on level null -->
+<!-- abstract> -->
+	<!-- name>IABO Configuration File</name -->
+	<!-- description>MP15 PS Siemens </description -->
+	<!-- techReleaseNotes>Draft for IABO configuration file</techReleaseNotes -->
+	<!-- material>1234567890</material -->
+	<!-- uid>12345</uid -->
+	<!-- version major="1" minor="0" revision="0"/ -->
+<!-- /abstract -->
+
+<IABO_Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- xsi:noNamespaceSchemaLocation="IABOcfg.xsd" -->
+	<UIM-Domain_IABO_common>
+		<description>MP15 Ps Bosch PS OS</description>
+		<version major="1" minor="0" revision="0"/>
+		<LEDModes>
+			<LEDModesFix>
+				<!--Predefined led mode in IABO, do NOT change them-->
+				<LedMode name="Off" id="0"/>
+				<LedMode name="On" id="1"/>
+				<LedMode name="FlashRate_1" id="2"/>
+				<LedMode name="FlashRate_2" id="3"/>
+				<LedMode name="FlashRate_3" id="4"/>
+				<LedMode name="FlashRate_4" id="5"/>
+				<LedMode name="FlashRate_5" id="6"/>
+			</LEDModesFix>
+			<LEDModesBin>
+				<LedModeDefinition>
+					<!-- only one LedMode and LedModeConfig per LEDModeDefinition /-->
+					<LedMode name="FlashRate_6" id="7"/>
+					<LedModeConfig repetitions="255" sync="1" brightnessInitial="50">
+						<LedModeConfigEntries>
+							<!-- number of entries min=1 max=9/-->
+							<LedModeConfigEntry entryId="0" TransitionTime="500" BrightnessEnd="50"/>
+							<LedModeConfigEntry entryId="1" TransitionTime="0" BrightnessEnd="100"/>
+							<LedModeConfigEntry entryId="2" TransitionTime="500" BrightnessEnd="100"/>
+						</LedModeConfigEntries>
+					</LedModeConfig>
+				</LedModeDefinition>
+			</LEDModesBin>
+			<LEDModesCustom>
+				<LedModeDefinition>
+					<!--Customer defined led mode/-->
+					<!-- only one LedMode and LedModeConfig per LEDModeDefinition /-->
+					<LedMode name="Dimming" id="9"/>
+					<LedModeConfig repetitions="0" sync="1" brightnessInitial="50">
+						<LedModeConfigEntries>
+							<!-- number of entries min=1 max=81/-->
+							<LedModeConfigEntry entryId="0" TransitionTime="0" BrightnessEnd="50"/>
+						</LedModeConfigEntries>
+					</LedModeConfig>
+				</LedModeDefinition>
+			</LEDModesCustom>
+		</LEDModes>
+		<PhysicalAnimations>
+			<!-- no animation -->
+			<Unit name="Off" hwId="0x00"/>
+			<!-- SE -->
+			<Unit name="StartUpAttraction_1" hwId="0x02"/>
+			<!-- for not use now
+			<Unit name="FunctionPhase_1" hwId="0x02"/>
+			<Unit name="FirmwareUpdate_1" hwId="0x05"/>
+			-->
+			<!-- BO -->
+			<Unit name="StartUpAttraction_2" hwId="0x06"/>
+			<!-- for not use now
+			<Unit name="FunctionPhase_2" hwId="0x07"/>
+			<Unit name="FirmwareUpdate_2" hwId="0x0A"/>
+			-->
+			<!-- GA -->
+			<!--Unit name="StartUpAttraction_3"  hwId="0x0B"/ -->
+			<!--Unit name="FunctionPhase_3"  hwId="0x0C"/ -->
+			<!--Unit name="FirmwareUpdate_3"  hwId="0x0F"/ -->
+		</PhysicalAnimations>
+		<ButtonModes>
+			<ButtonMode name="ShortPress1" id="0" eventType="0x00" duration="100"/>
+			<ButtonMode name="LongPress1" id="1" eventType="0x01" duration="500"/>
+			<!--ButtonMode name="ShortPress2" id="2" eventType="0x00" duration="200" repetitions="10" RepeatDuration=="1000"/-->
+			<!--ButtonMode name="LongPress2" id="3" eventType="0x01" duration="500" repetitions="10" RepeatDuration=="1000"/-->
+		</ButtonModes>
+	</UIM-Domain_IABO_common>
+	<UIM-Domain_IABO_PS>
+		<description>MP15 Ps Bosch PS</description>
+		<version major="1" minor="0" revision="0"/>
+		<GeneralData operatingModulename="LC_UIM_MP15_01_04" nodeDBus2="0x22"/>
+		<InputUnits>
+			<Buttons>
+				<TouchButtons>
+					<Unit name="PS_Btn_1" hwId="0x00"/>
+					<Unit name="PS_Btn_2" hwId="0x01"/>
+					<Unit name="PS_Btn_3" hwId="0x02"/>
+					<Unit name="PS_Btn_4" hwId="0x03"/>
+					<Unit name="PS_Btn_5" hwId="0x04"/>
+					<Unit name="PS_Btn_6" hwId="0x05"/>
+					<Unit name="PS_Btn_7" hwId="0x06"/>
+					<Unit name="PS_Btn_8" hwId="0x07"/>
+					<Unit name="PS_Btn_9" hwId="0x08"/>
+					<!-- Power -->
+				</TouchButtons>
+			</Buttons>
+			<Sliders>
+				<Slider sliderName="Slider_000">
+					<Unit name="PS_Btn_1"/>
+					<Unit name="PS_Btn_2"/>
+					<Unit name="PS_Btn_3"/>
+					<Unit name="PS_Btn_4"/>
+					<Unit name="PS_Btn_5"/>
+					<Unit name="PS_Btn_6"/>
+					<Unit name="PS_Btn_7"/>
+					<Unit name="PS_Btn_8"/>
+				</Slider>
+			</Sliders>
+		</InputUnits>
+		<OutputUnits>
+			<LEDs>
+				<PhysicalLEDs>
+					<!--Ring Led -->
+					<Unit name="PS_LED_1" hwId="0x0000"/>
+					<Unit name="PS_LED_2" hwId="0x0001"/>
+					<Unit name="PS_LED_3" hwId="0x0002"/>
+					<Unit name="PS_LED_4" hwId="0x0003"/>
+					<Unit name="PS_LED_5" hwId="0x0004"/>
+					<Unit name="PS_LED_6" hwId="0x0005"/>
+					<Unit name="PS_LED_7" hwId="0x0006"/>
+					<Unit name="PS_LED_8" hwId="0x0007"/>
+					<Unit name="PS_LED_9" hwId="0x0008"/>
+					<Unit name="PS_LED_10" hwId="0x0009"/>
+					<Unit name="PS_LED_11" hwId="0x000A"/>
+					<Unit name="PS_LED_12" hwId="0x000B"/>
+					<Unit name="PS_LED_13" hwId="0x000C"/>
+					<Unit name="PS_LED_14" hwId="0x000D"/>
+					<Unit name="PS_LED_15" hwId="0x000E"/>
+					<Unit name="PS_LED_16" hwId="0x000F"/>
+					<!--Program Led -->
+					<Unit name="PS_LED_17" hwId="0x0010"/>
+					<Unit name="PS_LED_18" hwId="0x0011"/>
+					<Unit name="PS_LED_19" hwId="0x0012"/>
+					<Unit name="PS_LED_20" hwId="0x0013"/>
+					<Unit name="PS_LED_21" hwId="0x0014"/>
+					<Unit name="PS_LED_22" hwId="0x0015"/>
+					<Unit name="PS_LED_23" hwId="0x0016"/>
+					<Unit name="PS_LED_24" hwId="0x0017"/>
+					<Unit name="PS_LED_25" hwId="0x0018"/>
+					<Unit name="PS_LED_26" hwId="0x0019"/>
+					<Unit name="PS_LED_27" hwId="0x001A"/>
+					<Unit name="PS_LED_28" hwId="0x001B"/>
+					<Unit name="PS_LED_29" hwId="0x001C"/>
+					<Unit name="PS_LED_30" hwId="0x001D"/>
+				</PhysicalLEDs>
+			</LEDs>
+			<PhysicalAnimations>
+				<!-- SE -->
+				<Unit name="ProgramRunningScreen_1" hwId="0x03"/>
+				<!-- BO -->
+				<Unit name="ProgramRunningScreen_2" hwId="0x08"/>
+				<!-- GA -->
+				<!-- Unit name="ProgramRunningScreen_3" hwId="0x0D"/ -->
+			</PhysicalAnimations>
+		</OutputUnits>
+		<SliderModes>
+			<SliderMode name="AbsolutMode">
+				<!-- areas must be recalculated -->
+				<Progress name="PS_SliPos_01" TouchAreaBegin="0x00" TouchAreaEnd="0x0D"/>
+				<Progress name="PS_SliPos_02" TouchAreaBegin="0x0D" TouchAreaEnd="0x13"/>
+				<Progress name="PS_SliPos_03" TouchAreaBegin="0x13" TouchAreaEnd="0x19"/>
+				<Progress name="PS_SliPos_04" TouchAreaBegin="0x19" TouchAreaEnd="0x1F"/>
+				<Progress name="PS_SliPos_05" TouchAreaBegin="0x1F" TouchAreaEnd="0x26"/>
+				<Progress name="PS_SliPos_06" TouchAreaBegin="0x26" TouchAreaEnd="0x2C"/>
+				<Progress name="PS_SliPos_07" TouchAreaBegin="0x2C" TouchAreaEnd="0x32"/>
+				<Progress name="PS_SliPos_08" TouchAreaBegin="0x32" TouchAreaEnd="0x38"/>
+				<Progress name="PS_SliPos_09" TouchAreaBegin="0x38" TouchAreaEnd="0x3F"/>
+				<Progress name="PS_SliPos_10" TouchAreaBegin="0x3F" TouchAreaEnd="0x45"/>
+				<Progress name="PS_SliPos_11" TouchAreaBegin="0x45" TouchAreaEnd="0x4B"/>
+				<Progress name="PS_SliPos_12" TouchAreaBegin="0x4B" TouchAreaEnd="0x51"/>
+				<Progress name="PS_SliPos_13" TouchAreaBegin="0x51" TouchAreaEnd="0x58"/>
+				<Progress name="PS_SliPos_14" TouchAreaBegin="0x58" TouchAreaEnd="0x64"/>
+			</SliderMode>
+			<SliderMode name="IncrementMode" step="1"/>
+		</SliderModes>
+	</UIM-Domain_IABO_PS>
+	<UIM-Domain_IABO_OS>
+		<description>MP15 Ps Washer Siemens Bosch OS</description>
+		<version major="1" minor="0" revision="0"/>
+		<GeneralData operatingModulename="LC_UIM_MP15_02_03" nodeDBus2="0x21"/>
+		<SoundModes>
+			<!--Predefined sound in IABO, do NOT change them-->
+			<SoundMode name="NoSound" id="0"/>
+			<!-- SE -->
+			<SoundMode name="SelectionNotAllowed_1" id="1"/>
+			<SoundMode name="SoundModeActivated_1" id="2"/>
+			<SoundMode name="SoundModeDeactivated_1" id="3"/>
+			<SoundMode name="SwitchOn_1" id="4"/>
+			<SoundMode name="SwitchOff_1" id="5"/>
+			<SoundMode name="SelectionDeselection_1" id="6"/>
+			<SoundMode name="Error_1" id="7"/>
+			<SoundMode name="WarningMalfunction_1" id="8"/>
+			<SoundMode name="Finish_1" id="9"/>
+			<SoundMode name="Information_1" id="10"/>
+			<SoundMode name="SnapSignalSliding_1" id="11"/>
+			<SoundMode name="ShortPress_1" id="12"/>
+			<!-- BO -->
+			<SoundMode name="SelectionNotAllowed_2" id="13"/>
+			<SoundMode name="SoundModeActivated_2" id="14"/>
+			<SoundMode name="SoundModeDeactivated_2" id="15"/>
+			<SoundMode name="SwitchOn_2" id="16"/>
+			<SoundMode name="SwitchOff_2" id="17"/>
+			<SoundMode name="SelectionDeselection_2" id="18"/>
+			<SoundMode name="Error_2" id="19"/>
+			<SoundMode name="WarningMalfunction_2" id="20"/>
+			<SoundMode name="Finish_2" id="21"/>
+			<SoundMode name="Information_2" id="22"/>
+			<SoundMode name="SnapSignalSliding_2" id="23"/>
+			<SoundMode name="ShortPress_2" id="24"/>
+			<!-- GA -->
+			<!-- SoundMode name="SelectionNotAllowed_3" id="25"/>
+			<SoundMode name="SoundModeActivated_3" id="26"/>
+			<SoundMode name="SoundModeDeactivated_3" id="27"/>
+			<SoundMode name="SwitchOn_3" id="28"/>
+			<SoundMode name="SwitchOff_3" id="29"/>
+			<SoundMode name="SelectionDeselection_3" id="30"/>
+			<SoundMode name="Error_3" id="31"/>
+			<SoundMode name="WarningMalfunction_3" id="32"/>
+			<SoundMode name="Finish_3" id="33"/>
+			<SoundMode name="Information_3" id="34"/>
+			<SoundMode name="SnapSignalSliding_3" id="35"/>
+			<SoundMode name="ShortPress_3" id="36"/ -->
+			<!--Customer defined sound modes/-->
+			<!--SoundMode name="BeepBeep" id="37" repetitions="0" sync="1" Frequency_00="440" Duration_00="100" Volume_00="100" Frequency_01="493" Duration_01="100" Volume_01="100"/-->
+		</SoundModes>
+		<InputUnits>
+			<Buttons>
+				<MechanicalButtons/>
+				<TouchButtons>
+					<Unit name="OS_Btn_1" hwId="0x80"/>
+					<Unit name="OS_Btn_2" hwId="0x81"/>
+					<Unit name="OS_Btn_3" hwId="0x82"/>
+					<Unit name="OS_Btn_4" hwId="0x83"/>
+					<Unit name="OS_Btn_5" hwId="0x84"/>
+					<Unit name="OS_Btn_6" hwId="0x85"/>
+					<Unit name="OS_Btn_7" hwId="0x86"/>
+					<Unit name="OS_Btn_8" hwId="0x87"/>
+					<Unit name="OS_Btn_9" hwId="0x88"/>
+					<Unit name="OS_Btn_10" hwId="0x89"/>
+					<Unit name="OS_Btn_11" hwId="0x8A"/>
+					<Unit name="OS_Btn_12" hwId="0x8B"/>
+					<Unit name="OS_Btn_13" hwId="0x8C"/>
+					<Unit name="OS_Btn_14" hwId="0x8D"/>
+					<Unit name="OS_Btn_15" hwId="0x8E"/>
+					<Unit name="OS_Btn_16" hwId="0x8F"/>
+					<Unit name="OS_Btn_17" hwId="0x90"/>
+					<Unit name="OS_Btn_18" hwId="0x91"/>
+					<Unit name="OS_Btn_19" hwId="0x92"/>
+					<Unit name="OS_Btn_20" hwId="0x93"/>
+					<Unit name="OS_Btn_21" hwId="0x94"/>
+				</TouchButtons>
+			</Buttons>
+		</InputUnits>
+		<OutputUnits>
+			<LEDs>
+				<PhysicalLEDs>
+					<!--digital temperature-->
+					<Unit name="OS_Digit1_A" hwId="0x8028"/>
+					<Unit name="OS_Digit1_B" hwId="0x8029"/>
+					<Unit name="OS_Digit1_C" hwId="0x802A"/>
+					<Unit name="OS_Digit1_D" hwId="0x802B"/>
+					<Unit name="OS_Digit1_E" hwId="0x802C"/>
+					<Unit name="OS_Digit1_F" hwId="0x802D"/>
+					<Unit name="OS_Digit1_G" hwId="0x802E"/>
+					<Unit name="OS_Digit2_A" hwId="0x8021"/>
+					<Unit name="OS_Digit2_B" hwId="0x8022"/>
+					<Unit name="OS_Digit2_C" hwId="0x8023"/>
+					<Unit name="OS_Digit2_D" hwId="0x8024"/>
+					<Unit name="OS_Digit2_E" hwId="0x8025"/>
+					<Unit name="OS_Digit2_F" hwId="0x8026"/>
+					<Unit name="OS_Digit2_G" hwId="0x8027"/>
+					<!--digital spin speed-->
+					<Unit name="OS_Digit3_A" hwId="0x8043"/>
+					<Unit name="OS_Digit3_B" hwId="0x8044"/>
+					<Unit name="OS_Digit3_C" hwId="0x8045"/>
+					<Unit name="OS_Digit3_D" hwId="0x8046"/>
+					<Unit name="OS_Digit3_E" hwId="0x8047"/>
+					<Unit name="OS_Digit3_F" hwId="0x8048"/>
+					<Unit name="OS_Digit3_G" hwId="0x8049"/>
+					<Unit name="OS_Digit4_A" hwId="0x803C"/>
+					<Unit name="OS_Digit4_B" hwId="0x803D"/>
+					<Unit name="OS_Digit4_C" hwId="0x803E"/>
+					<Unit name="OS_Digit4_D" hwId="0x803F"/>
+					<Unit name="OS_Digit4_E" hwId="0x8040"/>
+					<Unit name="OS_Digit4_F" hwId="0x8041"/>
+					<Unit name="OS_Digit4_G" hwId="0x8042"/>
+					<Unit name="OS_Digit5_A" hwId="0x8035"/>
+					<Unit name="OS_Digit5_B" hwId="0x8036"/>
+					<Unit name="OS_Digit5_C" hwId="0x8037"/>
+					<Unit name="OS_Digit5_D" hwId="0x8038"/>
+					<Unit name="OS_Digit5_E" hwId="0x8039"/>
+					<Unit name="OS_Digit5_F" hwId="0x803A"/>
+					<Unit name="OS_Digit5_G" hwId="0x803B"/>
+					<Unit name="OS_Digit6_B" hwId="0x8033"/>
+					<Unit name="OS_Digit6_C" hwId="0x8034"/>
+					<!--digital Multi-Function-->
+					<Unit name="OS_Digit7_A" hwId="0x8065"/>
+					<Unit name="OS_Digit7_B" hwId="0x8066"/>
+					<Unit name="OS_Digit7_C" hwId="0x8067"/>
+					<Unit name="OS_Digit7_D" hwId="0x8068"/>
+					<Unit name="OS_Digit7_E" hwId="0x8069"/>
+					<Unit name="OS_Digit7_F" hwId="0x806A"/>
+					<Unit name="OS_Digit7_G" hwId="0x806B"/>
+					<Unit name="OS_Digit8_A" hwId="0x805E"/>
+					<Unit name="OS_Digit8_B" hwId="0x805F"/>
+					<Unit name="OS_Digit8_C" hwId="0x8060"/>
+					<Unit name="OS_Digit8_D" hwId="0x8061"/>
+					<Unit name="OS_Digit8_E" hwId="0x8062"/>
+					<Unit name="OS_Digit8_F" hwId="0x8063"/>
+					<Unit name="OS_Digit8_G" hwId="0x8064"/>
+					<Unit name="OS_Digit9_B" hwId="0x805C"/>
+					<Unit name="OS_Digit9_C" hwId="0x805D"/>
+					<Unit name="OS_Digit10_A" hwId="0x8055"/>
+					<Unit name="OS_Digit10_B" hwId="0x8056"/>
+					<Unit name="OS_Digit10_C" hwId="0x8057"/>
+					<Unit name="OS_Digit10_D" hwId="0x8058"/>
+					<Unit name="OS_Digit10_E" hwId="0x8059"/>
+					<Unit name="OS_Digit10_F" hwId="0x805A"/>
+					<Unit name="OS_Digit10_G" hwId="0x805B"/>
+					<Unit name="OS_Digit11_A" hwId="0x804E"/>
+					<Unit name="OS_Digit11_B" hwId="0x804F"/>
+					<Unit name="OS_Digit11_C" hwId="0x8050"/>
+					<Unit name="OS_Digit11_D" hwId="0x8051"/>
+					<Unit name="OS_Digit11_E" hwId="0x8052"/>
+					<Unit name="OS_Digit11_F" hwId="0x8053"/>
+					<Unit name="OS_Digit11_G" hwId="0x8054"/>
+					<!--others-->
+					<Unit name="OS_LED_1" hwId="0x8000"/>
+					<Unit name="OS_LED_2" hwId="0x8001"/>
+					<Unit name="OS_LED_3" hwId="0x8002"/>
+					<Unit name="OS_LED_4" hwId="0x8003"/>
+					<Unit name="OS_LED_5" hwId="0x8004"/>
+					<Unit name="OS_LED_6" hwId="0x8005"/>
+					<Unit name="OS_LED_7" hwId="0x8006"/>
+					<Unit name="OS_LED_8" hwId="0x8007"/>
+					<Unit name="OS_LED_9" hwId="0x8008"/>
+					<Unit name="OS_LED_10" hwId="0x8009"/>
+					<Unit name="OS_LED_11" hwId="0x800A"/>
+					<Unit name="OS_LED_12" hwId="0x800B"/>
+					<Unit name="OS_LED_13" hwId="0x800C"/>
+					<Unit name="OS_LED_14_B" hwId="0x800D"/>
+					<Unit name="OS_LED_14_R" hwId="0x800E"/>
+					<Unit name="OS_LED_14_W" hwId="0x800F"/>
+					<Unit name="OS_LED_15_B" hwId="0x8010"/>
+					<Unit name="OS_LED_15_R" hwId="0x8011"/>
+					<Unit name="OS_LED_15_W" hwId="0x8012"/>
+					<Unit name="OS_LED_16_B" hwId="0x8013"/>
+					<Unit name="OS_LED_16_R" hwId="0x8014"/>
+					<Unit name="OS_LED_16_W" hwId="0x8015"/>
+					<Unit name="OS_LED_17_B" hwId="0x8016"/>
+					<Unit name="OS_LED_17_R" hwId="0x8017"/>
+					<Unit name="OS_LED_17_W" hwId="0x8018"/>
+					<Unit name="OS_LED_18_B" hwId="0x8019"/>
+					<Unit name="OS_LED_18_R" hwId="0x801A"/>
+					<Unit name="OS_LED_18_W" hwId="0x801B"/>
+					<Unit name="OS_LED_19_B" hwId="0x801C"/>
+					<Unit name="OS_LED_19_R" hwId="0x801D"/>
+					<Unit name="OS_LED_19_W" hwId="0x801E"/>
+					<Unit name="OS_LED_20_R" hwId="0x801F"/>
+					<Unit name="OS_LED_20_W" hwId="0x8020"/>
+					<Unit name="OS_LED_35" hwId="0x802F"/>
+					<Unit name="OS_LED_36" hwId="0x8030"/>
+					<Unit name="OS_LED_37" hwId="0x8031"/>
+					<Unit name="OS_LED_38" hwId="0x8032"/>
+					<Unit name="OS_LED_62" hwId="0x804A"/>
+					<Unit name="OS_LED_63" hwId="0x804B"/>
+					<Unit name="OS_LED_64" hwId="0x804C"/>
+					<Unit name="OS_LED_65" hwId="0x804D"/>
+					<Unit name="OS_LED_96" hwId="0x806C"/>
+					<Unit name="OS_LED_97" hwId="0x806D"/>
+					<Unit name="OS_LED_98" hwId="0x806E"/>
+					<Unit name="OS_LED_99" hwId="0x806F"/>
+					<Unit name="OS_LED_100" hwId="0x8070"/>
+					<Unit name="OS_LED_101" hwId="0x8071"/>
+					<Unit name="OS_LED_102" hwId="0x8072"/>
+					<Unit name="OS_LED_103" hwId="0x8073"/>
+					<Unit name="OS_LED_104" hwId="0x8074"/>
+					<Unit name="OS_LED_105" hwId="0x8075"/>
+					<Unit name="OS_LED_106" hwId="0x8076"/>
+					<Unit name="OS_LED_107" hwId="0x8077"/>
+					<Unit name="OS_LED_108" hwId="0x8078"/>
+					<Unit name="OS_LED_109_W" hwId="0x8079"/>
+					<Unit name="OS_LED_109_R" hwId="0x807A"/>
+					<Unit name="OS_LED_110_W" hwId="0x807B"/>
+					<Unit name="OS_LED_110_R" hwId="0x807C"/>
+					<Unit name="OS_LED_111_W" hwId="0x807D"/>
+					<Unit name="OS_LED_111_R" hwId="0x807E"/>
+					<Unit name="OS_LED_112_W" hwId="0x807F"/>
+					<Unit name="OS_LED_112_R" hwId="0x8080"/>
+					<Unit name="OS_LED_113_W" hwId="0x8081"/>
+					<Unit name="OS_LED_113_R" hwId="0x8082"/>
+					<Unit name="OS_LED_114" hwId="0x8083"/>
+					<Unit name="OS_LED_115" hwId="0x8084"/>
+					<Unit name="OS_LED_116_B" hwId="0x8085"/>
+					<Unit name="OS_LED_116_W" hwId="0x8086"/>
+					<Unit name="OS_LED_117_B" hwId="0x8087"/>
+					<Unit name="OS_LED_117_W" hwId="0x8088"/>
+					<Unit name="OS_LED_118_B" hwId="0x8089"/>
+					<Unit name="OS_LED_118_W" hwId="0x808A"/>
+					<Unit name="OS_LED_119" hwId="0x808B"/>
+					<Unit name="OS_LED_120_B" hwId="0x808C"/>
+					<Unit name="OS_LED_120_W" hwId="0x808D"/>
+					<Unit name="OS_LED_121_B" hwId="0x808E"/>
+					<Unit name="OS_LED_121_W" hwId="0x808F"/>
+					<Unit name="OS_LED_122_B" hwId="0x8090"/>
+					<Unit name="OS_LED_122_W" hwId="0x8091"/>
+					<Unit name="OS_LED_123" hwId="0x8092"/>
+					<Unit name="OS_LED_124_B" hwId="0x8093"/>
+					<Unit name="OS_LED_124_W" hwId="0x8094"/>
+					<Unit name="OS_LED_125_B" hwId="0x8095"/>
+					<Unit name="OS_LED_125_W" hwId="0x8096"/>
+					<Unit name="OS_LED_126_B" hwId="0x8097"/>
+					<Unit name="OS_LED_126_W" hwId="0x8098"/>
+					<Unit name="OS_LED_127" hwId="0x8099"/>
+					<Unit name="OS_LED_128_B" hwId="0x809A"/>
+					<Unit name="OS_LED_128_W" hwId="0x809B"/>
+					<Unit name="OS_LED_129_B" hwId="0x809C"/>
+					<Unit name="OS_LED_129_W" hwId="0x809D"/>
+					<Unit name="OS_LED_130_B" hwId="0x809E"/>
+					<Unit name="OS_LED_130_W" hwId="0x809F"/>
+					<Unit name="OS_LED_131" hwId="0x80A0"/>
+					<Unit name="OS_LED_132_B" hwId="0x80A1"/>
+					<Unit name="OS_LED_132_W" hwId="0x80A2"/>
+					<Unit name="OS_LED_133_B" hwId="0x80A3"/>
+					<Unit name="OS_LED_133_W" hwId="0x80A4"/>
+					<Unit name="OS_LED_134_B" hwId="0x80A5"/>
+					<Unit name="OS_LED_134_W" hwId="0x80A6"/>
+					<Unit name="OS_LED_135" hwId="0x80A7"/>
+					<Unit name="OS_LED_136" hwId="0x80A8"/>
+					<Unit name="OS_LED_137" hwId="0x80A9"/>
+				</PhysicalLEDs>
+				<VirtualSegments>
+					<!--max 16 virtualSegment supported, Every VirtualSegment includes max 14 virtualSegments OR max 7 physical or virtual-->
+					<VirtualSegment name="Temp_Digit_0">
+						<PhysicalUnit name="OS_Digit1_A"/>
+						<PhysicalUnit name="OS_Digit1_B"/>
+						<PhysicalUnit name="OS_Digit1_C"/>
+						<PhysicalUnit name="OS_Digit1_D"/>
+						<PhysicalUnit name="OS_Digit1_E"/>
+						<PhysicalUnit name="OS_Digit1_F"/>
+						<PhysicalUnit name="OS_Digit1_G"/>
+					</VirtualSegment>
+					<VirtualSegment name="Temp_Digit_1">
+						<PhysicalUnit name="OS_Digit2_A"/>
+						<PhysicalUnit name="OS_Digit2_B"/>
+						<PhysicalUnit name="OS_Digit2_C"/>
+						<PhysicalUnit name="OS_Digit2_D"/>
+						<PhysicalUnit name="OS_Digit2_E"/>
+						<PhysicalUnit name="OS_Digit2_F"/>
+						<PhysicalUnit name="OS_Digit2_G"/>
+					</VirtualSegment>
+					<VirtualSegment name="Speed_Digit_0">
+						<PhysicalUnit name="OS_Digit3_A"/>
+						<PhysicalUnit name="OS_Digit3_B"/>
+						<PhysicalUnit name="OS_Digit3_C"/>
+						<PhysicalUnit name="OS_Digit3_D"/>
+						<PhysicalUnit name="OS_Digit3_E"/>
+						<PhysicalUnit name="OS_Digit3_F"/>
+						<PhysicalUnit name="OS_Digit3_G"/>
+					</VirtualSegment>
+					<VirtualSegment name="Speed_Digit_1">
+						<PhysicalUnit name="OS_Digit4_A"/>
+						<PhysicalUnit name="OS_Digit4_B"/>
+						<PhysicalUnit name="OS_Digit4_C"/>
+						<PhysicalUnit name="OS_Digit4_D"/>
+						<PhysicalUnit name="OS_Digit4_E"/>
+						<PhysicalUnit name="OS_Digit4_F"/>
+						<PhysicalUnit name="OS_Digit4_G"/>
+					</VirtualSegment>
+					<VirtualSegment name="Speed_Digit_2">
+						<PhysicalUnit name="OS_Digit5_A"/>
+						<PhysicalUnit name="OS_Digit5_B"/>
+						<PhysicalUnit name="OS_Digit5_C"/>
+						<PhysicalUnit name="OS_Digit5_D"/>
+						<PhysicalUnit name="OS_Digit5_E"/>
+						<PhysicalUnit name="OS_Digit5_F"/>
+						<PhysicalUnit name="OS_Digit5_G"/>
+					</VirtualSegment>
+					<VirtualSegment name="Speed_Digit_3">
+						<PhysicalUnit name="OS_Digit6_B"/>
+						<PhysicalUnit name="OS_Digit6_C"/>
+					</VirtualSegment>
+					<VirtualSegment name="MultiFunc_Digit_0">
+						<PhysicalUnit name="OS_Digit7_A"/>
+						<PhysicalUnit name="OS_Digit7_B"/>
+						<PhysicalUnit name="OS_Digit7_C"/>
+						<PhysicalUnit name="OS_Digit7_D"/>
+						<PhysicalUnit name="OS_Digit7_E"/>
+						<PhysicalUnit name="OS_Digit7_F"/>
+						<PhysicalUnit name="OS_Digit7_G"/>
+					</VirtualSegment>
+					<VirtualSegment name="MultiFunc_Digit_1">
+						<PhysicalUnit name="OS_Digit8_A"/>
+						<PhysicalUnit name="OS_Digit8_B"/>
+						<PhysicalUnit name="OS_Digit8_C"/>
+						<PhysicalUnit name="OS_Digit8_D"/>
+						<PhysicalUnit name="OS_Digit8_E"/>
+						<PhysicalUnit name="OS_Digit8_F"/>
+						<PhysicalUnit name="OS_Digit8_G"/>
+					</VirtualSegment>
+					<!--"MultiFunc Digit Europ"-->
+					<VirtualSegment name="MultiFunc_Digit_Colon">
+						<PhysicalUnit name="OS_Digit9_B"/>
+					</VirtualSegment>
+					<VirtualSegment name="MultiFunc_Digit_Dot">
+						<PhysicalUnit name="OS_Digit9_C"/>
+					</VirtualSegment>
+					<VirtualSegment name="MultiFunc_Digit_Symbol">
+						<PhysicalUnit name="MultiFunc_Digit_Colon"/>
+						<PhysicalUnit name="MultiFunc_Digit_Dot"/>
+					</VirtualSegment>
+					<VirtualSegment name="MultiFunc_Digit_3">
+						<PhysicalUnit name="OS_Digit10_A"/>
+						<PhysicalUnit name="OS_Digit10_B"/>
+						<PhysicalUnit name="OS_Digit10_C"/>
+						<PhysicalUnit name="OS_Digit10_D"/>
+						<PhysicalUnit name="OS_Digit10_E"/>
+						<PhysicalUnit name="OS_Digit10_F"/>
+						<PhysicalUnit name="OS_Digit10_G"/>
+					</VirtualSegment>
+					<VirtualSegment name="MultiFunc_Digit_4">
+						<PhysicalUnit name="OS_Digit11_A"/>
+						<PhysicalUnit name="OS_Digit11_B"/>
+						<PhysicalUnit name="OS_Digit11_C"/>
+						<PhysicalUnit name="OS_Digit11_D"/>
+						<PhysicalUnit name="OS_Digit11_E"/>
+						<PhysicalUnit name="OS_Digit11_F"/>
+						<PhysicalUnit name="OS_Digit11_G"/>
+					</VirtualSegment>
+					<VirtualSegmentString name="SegmentLed_Temperature">
+						<VirtualUnit name="Temp_Digit_0"/>
+						<VirtualUnit name="Temp_Digit_1"/>
+					</VirtualSegmentString>
+					<VirtualSegmentString name="SegmentLed_Speed">
+						<VirtualUnit name="Speed_Digit_0"/>
+						<VirtualUnit name="Speed_Digit_1"/>
+						<VirtualUnit name="Speed_Digit_2"/>
+						<VirtualUnit name="Speed_Digit_3"/>
+					</VirtualSegmentString>
+					<VirtualSegmentString name="SegmentLed_MultiFunc">
+						<VirtualUnit name="MultiFunc_Digit_0"/>
+						<VirtualUnit name="MultiFunc_Digit_1"/>
+						<VirtualUnit name="MultiFunc_Digit_Symbol"/>
+						<VirtualUnit name="MultiFunc_Digit_3"/>
+						<VirtualUnit name="MultiFunc_Digit_4"/>
+					</VirtualSegmentString>
+				</VirtualSegments>
+			</LEDs>
+			<PhysicalAnimations>
+				<!-- SE -->
+				<Unit name="ProcessOngoing_1" hwId="0x04"/>
+				<!-- BO -->
+				<Unit name="ProcessOngoing_2" hwId="0x08"/>
+				<!-- GA -->
+				<!-- Unit name="ProcessOngoing_3" hwId="0x0E"/ -->
+			</PhysicalAnimations>
+		</OutputUnits>
+	</UIM-Domain_IABO_OS>
+	<UIM-Domain_only>
+		<description>MP15 Ps Washer Bosch</description>
+		<version major="1" minor="0" revision="0"/>
+		<InputUnits>
+			<!-- Maps a fixed or variable logical input to a physical button-->
+			<Buttons>
+				<ButtonFunctions>
+					<!-- not part of POR database yet -->
+					<ButtonMapping name="PowerSwitch" unitname="PS_Btn_9" buttonMode="LongPress1"/>
+					<!-- must be checked data type integer (timeout) -->
+					<ButtonMapping name="More.toggle" unitname="OS_Btn_1" buttonMode="ShortPress1"/>
+					<ButtonMapping name="VariableFunctionKey01" unitname="OS_Btn_2" buttonMode="ShortPress1"/>
+					<ButtonMapping name="VariableFunctionKey02" unitname="OS_Btn_3" buttonMode="ShortPress1"/>
+					<ButtonMapping name="VariableFunctionKey03" unitname="OS_Btn_4" buttonMode="ShortPress1"/>
+					<ButtonMapping name="VariableFunctionKey04" unitname="OS_Btn_5" buttonMode="ShortPress1"/>
+					<ButtonMapping name="BasicSetup.toggle" unitname="OS_Btn_6" buttonMode="ShortPress1"/>
+					<ButtonMapping name="ChildLock.toggle" unitname="OS_Btn_7" buttonMode="ShortPress1"/>
+					<ButtonMapping name="Temperature.next" unitname="OS_Btn_8" buttonMode="ShortPress1"/>
+					<ButtonMapping name="SpinSpeed.next" unitname="OS_Btn_9" buttonMode="ShortPress1"/>
+					<ButtonMapping name="EndingTime.next" unitname="OS_Btn_10" buttonMode="ShortPress1"/>
+					<ButtonMapping name="StartReloadPause.toggle" unitname="OS_Btn_11" buttonMode="ShortPress1"/>
+					<ButtonMapping name="ReloadPause.toggle" unitname="OS_Btn_11" buttonMode="ShortPress1"/>
+					<ButtonMapping name="Temperature.previous" unitname="OS_Btn_12" buttonMode="ShortPress1"/>
+					<ButtonMapping name="SpinSpeed.previous" unitname="OS_Btn_13" buttonMode="ShortPress1"/>
+					<ButtonMapping name="EndingTime.previous" unitname="OS_Btn_14" buttonMode="ShortPress1"/>
+					<ButtonMapping name="VariableFunctionKey05" unitname="OS_Btn_15" buttonMode="ShortPress1"/>
+					<ButtonMapping name="VariableFunctionKey06" unitname="OS_Btn_16" buttonMode="ShortPress1"/>
+					<ButtonMapping name="VariableFunctionKey07" unitname="OS_Btn_17" buttonMode="ShortPress1"/>
+					<ButtonMapping name="VariableFunctionKey08" unitname="OS_Btn_18" buttonMode="ShortPress1"/>
+					<ButtonMapping name="EndingTime.toggle" unitname="OS_Btn_19" buttonMode="ShortPress1"/>
+					<ButtonMapping name="SpeedPerfect.toggle" unitname="OS_Btn_20" buttonMode="ShortPress1"/>
+					<ButtonMapping name="RemoteStartAllowance.toggle" unitname="OS_Btn_21" buttonMode="ShortPress1"/>
+				</ButtonFunctions>
+			</Buttons>
+			<Encoders>
+				<Slider>
+					<SliderFunctions>
+						<SliderMapping name="ProgramSelector01" unitname="PS_SliPos_01" />
+						<SliderMapping name="ProgramSelector02" unitname="PS_SliPos_02" />
+						<SliderMapping name="ProgramSelector03" unitname="PS_SliPos_03" />
+						<SliderMapping name="ProgramSelector04" unitname="PS_SliPos_04" />
+						<SliderMapping name="ProgramSelector05" unitname="PS_SliPos_05" />
+						<SliderMapping name="ProgramSelector06" unitname="PS_SliPos_06" />
+						<SliderMapping name="ProgramSelector07" unitname="PS_SliPos_07" />
+						<SliderMapping name="ProgramSelector08" unitname="PS_SliPos_08" />
+						<SliderMapping name="ProgramSelector09" unitname="PS_SliPos_09" />
+						<SliderMapping name="ProgramSelector10" unitname="PS_SliPos_10" />
+						<SliderMapping name="ProgramSelector11" unitname="PS_SliPos_11" />
+						<SliderMapping name="ProgramSelector12" unitname="PS_SliPos_12" />
+						<SliderMapping name="ProgramSelector13" unitname="PS_SliPos_13" />
+						<SliderMapping name="ProgramSelector14" unitname="PS_SliPos_14" />					
+					</SliderFunctions>
+				</Slider>
+			</Encoders>
+			<Layouts>
+				<Layout name="ProgramsLayout">
+					<!--To be removed after UI Logic app read from domain interface/-->
+					<LayoutItem name="ProgramSelector01"/>
+					<LayoutItem name="ProgramSelector02"/>
+					<LayoutItem name="ProgramSelector03"/>
+					<LayoutItem name="ProgramSelector04"/>
+					<LayoutItem name="ProgramSelector05"/>
+					<LayoutItem name="ProgramSelector06"/>
+					<LayoutItem name="ProgramSelector07"/>
+					<LayoutItem name="ProgramSelector08"/>
+					<LayoutItem name="ProgramSelector09"/>
+					<LayoutItem name="ProgramSelector10"/>
+					<LayoutItem name="ProgramSelector11"/>
+					<LayoutItem name="ProgramSelector12"/>
+					<LayoutItem name="ProgramSelector13"/>
+					<LayoutItem name="ProgramSelector14"/>
+				</Layout>
+				<Layout name="StainsLayout">
+					<LayoutItem name="Position06"/>
+					<LayoutItem name="Position05"/>
+					<LayoutItem name="Position04"/>
+					<LayoutItem name="Position03"/>
+					<LayoutItem name="Position02"/>
+					<LayoutItem name="Position01"/>
+				</Layout>
+				<Layout name="MoreLayout">
+					<LayoutItem name="VariableFunctionKey01"/>
+					<LayoutItem name="VariableFunctionKey02"/>
+					<LayoutItem name="VariableFunctionKey03"/>
+					<LayoutItem name="VariableFunctionKey04"/>
+					<LayoutItem name="BasicSetup.toggle"/>
+					<LayoutItem name="ChildLock.toggle"/>
+				</Layout>
+				<!-- Layout name="ProgramsLayout" -->
+			</Layouts>
+		</InputUnits>
+		<OutputUnits>
+			<!-- Maps a fixed or variable function to a physical output -->
+			<LEDs>
+				<LEDFunctionMappingSimple>
+					<!-- Fixed State Option LEDS -->
+					<LEDFunction name="ValueTemperature" unitname="SegmentLed_Temperature" ledMode="On"/>
+					<LEDFunction name="ValueSpinSpeed" unitname="SegmentLed_Speed" ledMode="On"/>
+					<LEDFunction name="ValueMultiFunction" unitname="SegmentLed_MultiFunc" ledMode="On"/>
+					<!--Question : Indicator functions ? -->
+					<LEDFunction name="SymbolCelsius" unitname="OS_LED_37" ledMode="On"/>
+					<LEDFunction name="SymbolCold" unitname="OS_LED_38" ledMode="On"/>
+					<LEDFunction name="SymbolSpinSpeed" unitname="OS_LED_64" ledMode="On"/>
+					<LEDFunction name="SymbolWiFi" unitname="OS_LED_99" ledMode="On"/>
+					<LEDFunction name="SymbolHour" unitname="OS_LED_100" ledMode="On"/>
+					<LEDFunction name="SymbolKg" unitname="OS_LED_101" ledMode="On"/>
+					<LEDFunction name="SymbolWrinkleGuard" unitname="OS_LED_103" ledMode="On"/>
+					<LEDFunction name="SymbolRemoteConfig" unitname="OS_LED_105" ledMode="On"/>
+
+					<LEDFunction name="SymbolDoorLock.Locked" unitname="OS_LED_106" ledMode="On"/>
+					<!-- other SymbolDoorLock enumerators are derived hard coded -->
+					<!-- LEDFunction name="SymbolDoorLock.Locking" unitname="OS_LED_106" ledMode="FlashRate_2"/ -->
+					<!-- LEDFunction name="SymbolDoorLock.Critical" unitname="OS_LED_106" ledMode="FlashRate_1"/ -->
+					<!-- LEDFunction name="SymbolDoorLock.Open" unitname="OS_LED_106" ledMode="FlashRate_3"/ -->
+
+					<LEDFunction name="SymbolMl" unitname="OS_LED_107" ledMode="On"/>
+					<LEDFunction name="SymbolReload" unitname="OS_LED_108" ledMode="On"/>
+					<LEDFunction name="SymbolDrumClean" unitname="OS_LED_110_W" ledMode="On"/>
+					<LEDFunction name="SymbolOpenTray" unitname="OS_LED_111_R" ledMode="FlashRate_1"/>
+
+					<LEDFunction name="SymbolWaterTap.Closed" unitname="OS_LED_112_R" ledMode="On"/>
+					<!-- other SymbolWaterTap enumerators are derived hard coded -->
+					<!--<LEDFunction name="SymbolWaterTap.Error" unitname="OS_LED_112_W" ledMode="FlashRate_1"/-->
+
+					<LEDFunction name="SymbolFoam" unitname="OS_LED_113_R" ledMode="On"/>
+
+					<!-- SymbolProgram enumerators are hard coded and assigned to same LED button function Start.toggle -->
+					<!-- <LEDFunction name="SymbolProgram.Running" unitname="OS_LED_115" ledMode="On"/-->
+					<!--<LEDFunction name="SymbolProgram.Ready" unitname="OS_LED_115" ledMode="FlashRate_3"/ -->
+					<!--<LEDFunction name="SymbolProgram.Pause" unitname="OS_LED_115" ledMode="FlashRate_2"/ -->
+					<!--<LEDFunction name="SymbolProgram.Rinsehold" unitname="OS_LED_115" ledMode="FlashRate_1"/ -->
+
+					<!-- hard coded: but defined as constant in POR as Boolean -->
+					<!--<LEDFunction name="SymbolSystemStandby" unitname="OS_LED_115" ledMode="FlashRate_4"/ -->
+
+				</LEDFunctionMappingSimple>
+				<LEDFunctionMappingExtended>
+					<!-- LED functions for programs -->
+					<LEDFunctionExtended name="ProgramSelector01">
+						<!-- build by parser ProgramSelector01.Program.selectable correspond to [name="program01Indicator" state="selectable" ] -->
+						<LED name="Program.selectable" unitname="PS_LED_17" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_2" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_17" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_2" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector02">
+						<LED name="Program.selectable" unitname="PS_LED_18" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_3" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_18" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_3" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector03">
+						<LED name="Program.selectable" unitname="PS_LED_19" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_4" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_19" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_4" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector04">
+						<LED name="Program.selectable" unitname="PS_LED_20" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_5" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_20" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_5" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector05">
+						<LED name="Program.selectable" unitname="PS_LED_21" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_6" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_21" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_6" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector06">
+						<LED name="Program.selectable" unitname="PS_LED_22" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_7" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_22" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_7" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector07">
+						<LED name="Program.selectable" unitname="PS_LED_23" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_8" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_23" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_8" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector08">
+						<LED name="Program.selectable" unitname="PS_LED_24" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_10" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_24" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_10" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector09">
+						<LED name="Program.selectable" unitname="PS_LED_25" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_11" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_25" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_11" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector10">
+						<LED name="Program.selectable" unitname="PS_LED_26" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_12" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_26" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_12" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector11">
+						<LED name="Program.selectable" unitname="PS_LED_27" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_13" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_27" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_13" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector12">
+						<LED name="Program.selectable" unitname="PS_LED_28" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_14" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_28" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_14" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector13">
+						<LED name="Program.selectable" unitname="PS_LED_29" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_15" ledMode="Dimming"/>
+						<LED name="Program.selected" unitname="PS_LED_29" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_15" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="ProgramSelector14">
+						<LED name="Program.selectable" unitname="PS_LED_30" ledMode="Dimming"/>
+						<LED name="SliderElement.selectable" unitname="PS_LED_16" ledMode="On"/>
+						<LED name="Program.selected" unitname="PS_LED_30" ledMode="On"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_16" ledMode="On"/>
+					</LEDFunctionExtended>
+					<!-- LED functions for lightring -->
+					<LEDFunctionExtended name="LightRing_01">
+						<LED name="SliderElement.selectable" unitname="PS_LED_1" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_1" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_02">
+						<LED name="SliderElement.selectable" unitname="PS_LED_2" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_2" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_03">
+						<LED name="SliderElement.selectable" unitname="PS_LED_3" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_3" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_04">
+						<LED name="SliderElement.selectable" unitname="PS_LED_4" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_4" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_05">
+						<LED name="SliderElement.selectable" unitname="PS_LED_5" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_5" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_06">
+						<LED name="SliderElement.selectable" unitname="PS_LED_6" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_6" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_07">
+						<LED name="SliderElement.selectable" unitname="PS_LED_7" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_7" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_08">
+						<LED name="SliderElement.selectable" unitname="PS_LED_8" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_8" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_09">
+						<LED name="SliderElement.selectable" unitname="PS_LED_9" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_9" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_10">
+						<LED name="SliderElement.selectable" unitname="PS_LED_10" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_10" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_11">
+						<LED name="SliderElement.selectable" unitname="PS_LED_11" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_11" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_12">
+						<LED name="SliderElement.selectable" unitname="PS_LED_12" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_12" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_13">
+						<LED name="SliderElement.selectable" unitname="PS_LED_13" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_13" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_14">
+						<LED name="SliderElement.selectable" unitname="PS_LED_14" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_14" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_15">
+						<LED name="SliderElement.selectable" unitname="PS_LED_15" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_15" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="LightRing_16">
+						<LED name="SliderElement.selectable" unitname="PS_LED_16" ledMode="Dimming"/>
+						<LED name="SliderElement.selected" unitname="PS_LED_16" ledMode="On"/>
+					</LEDFunctionExtended>
+					<!-- Fixed Function LEDS -->
+					<LEDFunctionExtended name="Temperature.next">
+						<LED name="Button.selectable" unitname="OS_LED_35" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Temperature.previous">
+						<LED name="Button.selectable" unitname="OS_LED_36" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="SpinSpeed.next">
+						<LED name="Button.selectable" unitname="OS_LED_62" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="SpinSpeed.previous">
+						<LED name="Button.selectable" unitname="OS_LED_63" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="DelayTime.next">
+						<LED name="Button.selectable" unitname="OS_LED_96" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="DelayTime.previous">
+						<LED name="Button.selectable" unitname="OS_LED_97" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Start.toggle">
+						<LED name="Button.selectable" unitname="OS_LED_115" ledMode="Dimming"/>
+						<LED name="Button.selected" unitname="OS_LED_115" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="PauseReload.toggle">
+						<LED name="Button.selectable" unitname="OS_LED_114" ledMode="Dimming"/>
+						<LED name="Button.selected" unitname="OS_LED_114" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="More.toggle">
+						<LED name="Button.selectable" unitname="OS_LED_1" ledMode="On"/>
+						<LED name="Button.selected" unitname="OS_LED_1" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="BasicSetup.toggle">
+						<LED name="Button.selectable" unitname="OS_LED_10" ledMode="Dimming"/>
+						<LED name="Button.selected" unitname="OS_LED_10" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Childlock.toggle">
+						<LED name="Button.selectable" unitname="OS_LED_12" ledMode="Dimming"/>
+						<LED name="Button.selected" unitname="OS_LED_12" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="EndingTime.toggle">
+						<LED name="Button.selectable" unitname="OS_LED_131" ledMode="Dimming"/>
+						<LED name="Button.selected" unitname="OS_LED_131" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="SpeedPerfect.toggle">
+						<LED name="Button.selectable" unitname="OS_LED_135" ledMode="Dimming"/>
+						<LED name="Button.selected" unitname="OS_LED_135" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="RemoteStartAllowance.toggle">
+						<LED name="Button.selectable" unitname="OS_LED_137" ledMode="Dimming"/>
+						<LED name="Button.selected" unitname="OS_LED_137" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Rinsehold.toggle">
+						<LED name="Symbol.selected" unitname="OS_LED_65" ledMode="On"/>
+					</LEDFunctionExtended>
+				</LEDFunctionMappingExtended>
+				<LEDFunctionMappingVariable>
+					<!-- VariableFunctions -->
+					<LEDFunctionVariable name="Prewash.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="WaterPlus.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="RinsePlus1.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="Steam.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="Memory">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="MiniLoad.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="Soak.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="RinsePlus3.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="WaterAndRinsePlus1.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="IDos1Active.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+							<!-- implizit selected with warning -->
+							<!-- LED name="Button.warning" unitname="OS_LED_119" ledMode="Flashrate_2"/ -->
+
+							<!-- special tag LEDFunction means that parser can take the name directly (nothing to build, no spliting) -->
+							<LEDFunction name="SymbolIDos1Detergent.Filled.selectable" unitname="OS_LED_117_W" ledMode="Dimming"/>
+							<LEDFunction name="SymbolIDos1Detergent.Filled.selected" unitname="OS_LED_117_W" ledMode="On"/>
+							<!-- hard coded -->
+							<!-- LEDFunction name="SymbolIDos1Detergent.EmptySelected" unitname="OS_LED_117_W" ledMode="Flashrate_2"/ -->
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+							<!-- implizit selected with warning -->
+							<!-- LED name="Button.warning" unitname="OS_LED_123" ledMode="Flashrate_2"/ -->
+
+							<!-- special tag LEDFunction means that parser can take the name directly (nothing to build, no spliting) -->
+							<LEDFunction name="SymbolIDos1Detergent.Filled.selectable" unitname="OS_LED_121_W" ledMode="Dimming"/>
+							<LEDFunction name="SymbolIDos1Detergent.Filled.selected" unitname="OS_LED_121_W" ledMode="On"/>
+							<!-- hard coded -->
+							<!-- LEDFunction name="SymbolIDos1Detergent.EmptySelected" unitname="OS_LED_121_W" ledMode="Flashrate_2"/ -->
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="IDos2Active.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+							<!-- implizit selected with warning -->
+							<!-- LED name="Button.warning" unitname="OS_LED_123" ledMode="Flashrate_2"/ -->
+
+							<!-- special tag LEDFunction means that parser can take the name directly (nothing to build, no spliting) -->
+							<LEDFunction name="SymbolIDos2Detergent.Filled.selectable" unitname="OS_LED_120_W" ledMode="Dimming"/>
+							<LEDFunction name="SymbolIDos2Detergent.Filled.selected" unitname="OS_LED_120_W" ledMode="On"/>
+							<LEDFunction name="SymbolIDos2Softener.Filled.selectable" unitname="OS_LED_121_W" ledMode="Dimming"/>
+							<LEDFunction name="SymbolIDos2Softener.Filled.selected" unitname="OS_LED_121_W" ledMode="On"/>
+							<!-- hard coded -->
+							<!-- LEDFunction name="SymbolIDos2Detergent.Empty.selected" unitname="OS_LED_120_W" ledMode="Flashrate_2"/ -->
+							<!-- LEDFunction name="SymbolIDos2Softener.Empty.selected" unitname="OS_LED_121_W" ledMode="Flashrate_2"/ -->
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+							<!-- implizit selected with warning -->
+							<!-- LED name="Button.warning" unitname="OS_LED_127" ledMode="Flashrate_2"/ -->
+
+							<!-- special tag LEDFunction means that parser can take the name directly (nothing to build, no spliting) -->
+							<LEDFunction name="SymbolIDos2Detergent.Filled.selectable" unitname="OS_LED_124_W" ledMode="Dimming"/>
+							<LEDFunction name="SymbolIDos2Detergent.Filled.selected" unitname="OS_LED_124_W" ledMode="On"/>
+							<LEDFunction name="SymbolIDos2Softener.Filled.selectable" unitname="OS_LED_125_W" ledMode="Dimming"/>
+							<LEDFunction name="SymbolIDos2Softener.Filled.selected" unitname="OS_LED_125_W" ledMode="On"/>
+							<!-- hard coded -->
+							<!-- LEDFunction name="SymbolIDos2Detergent.Empty.selected" unitname="OS_LED_124_W" ledMode="Flashrate_2"/ -->
+							<!-- LEDFunction name="SymbolIDos2Softener.Empty.selected" unitname="OS_LED_125_W" ledMode="Flashrate_2"/ -->
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="SilentMode.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="IntensivePlus.toggle">
+						<LEDFunctionExtended name="VariableFunctionKey01">
+							<!-- is OP_KEY_02 -->
+							<LED name="Button.selectable" unitname="OS_LED_2" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_2" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey02">
+							<!-- is OP_KEY_03 -->
+							<LED name="Button.selectable" unitname="OS_LED_4" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_4" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey03">
+							<!-- is OP_KEY_04 -->
+							<LED name="Button.selectable" unitname="OS_LED_6" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_6" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey04">
+							<!-- is OP_KEY_05 -->
+							<LED name="Button.selectable" unitname="OS_LED_8" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_8" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey06">
+							<!-- is OP_KEY_09 -->
+							<LED name="Button.selectable" unitname="OS_LED_119" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_119" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey07">
+							<!-- is OP_KEY_10 -->
+							<LED name="Button.selectable" unitname="OS_LED_123" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_123" ledMode="On"/>
+						</LEDFunctionExtended>
+						<LEDFunctionExtended name="VariableFunctionKey08">
+							<!-- is OP_KEY_011 -->
+							<LED name="Button.selectable" unitname="OS_LED_127" ledMode="On"/>
+							<LED name="Button.selected" unitname="OS_LED_127" ledMode="On"/>
+							<LED name="Symbol.selected" unitname="OS_LED_125_B" ledMode="On"/>
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+					<LEDFunctionVariable name="Stains.next">
+						<LEDFunctionExtended name="VariableFunctionKey05">
+							<!-- is OP_KEY_08 -->
+							<LED name="Button.selectable" unitname="OS_LED_20_R" ledMode="Dimming"/>
+							<LED name="Button.selected" unitname="OS_LED_20_R" ledMode="On"/>
+							<!-- no specific symbol in this case -->
+							<!-- LED name="Symbol.selected" unitname="OS_LED_19_B" ledMode="On"/ -->
+						</LEDFunctionExtended>
+					</LEDFunctionVariable>
+				</LEDFunctionMappingVariable>
+				<LEDFunctionMappingLayout layoutname="StainsLayout">
+					<!-- both lines moved to variable functions stains.next -->
+					<!-- LED name="Button.selectable" unitname="OS_LED_20_W" ledMode="On"/ -->
+					<!-- LED name="Button.selected" unitname="OS_LED_20_W" ledMode="On"/ -->
+					<!-- is OP_KEY_08 -->
+					<LEDFunctionExtended name="Position01">
+						<LED name="Symbol.selectable" unitname="OS_LED_19_R" ledMode="Dimming"/>
+						<LED name="Symbol.selected" unitname="OS_LED_19_R" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Position02">
+						<LED name="Symbol.selectable" unitname="OS_LED_18_R" ledMode="Dimming"/>
+						<LED name="Symbol.selected" unitname="OS_LED_18_R" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Position03">
+						<LED name="Symbol.selectable" unitname="OS_LED_17_R" ledMode="Dimming"/>
+						<LED name="Symbol.selected" unitname="OS_LED_17_R" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Position04">
+						<LED name="Symbol.selectable" unitname="OS_LED_16_R" ledMode="Dimming"/>
+						<LED name="Symbol.selected" unitname="OS_LED_16_R" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Position05">
+						<LED name="Symbol.selectable" unitname="OS_LED_15_R" ledMode="Dimming"/>
+						<LED name="Symbol.selected" unitname="OS_LED_15_R" ledMode="On"/>
+					</LEDFunctionExtended>
+					<LEDFunctionExtended name="Position06">
+						<LED name="Symbol.selectable" unitname="OS_LED_14_R" ledMode="Dimming"/>
+						<LED name="Symbol.selected" unitname="OS_LED_14_R" ledMode="On"/>
+					</LEDFunctionExtended>
+				</LEDFunctionMappingLayout>
+			</LEDs>
+			<Sounds>
+				<SoundFunctionMapping>
+					<!-- BO -->
+					<SoundFunction name="SelectionNotAllowed" soundmode="SelectionNotAllowed_2"/>
+					<SoundFunction name="SoundModeActivated" soundmode="SoundModeActivated_2"/>
+					<SoundFunction name="SoundModeDeactivated" soundmode="SoundModeDeactivated_2"/>
+					<SoundFunction name="SwitchOn" soundmode="SwitchOn_2"/>
+					<SoundFunction name="SwitchOff" soundmode="SwitchOff_2"/>
+					<SoundFunction name="SelectionDeselection" soundmode="SelectionDeselection_2"/>
+					<SoundFunction name="Error" soundmode="Error_2"/>
+					<SoundFunction name="WarningMalfunction" soundmode="WarningMalfunction_2"/>
+					<SoundFunction name="Finish" soundmode="Finish_2"/>
+					<SoundFunction name="Information" soundmode="Information_2"/>
+					<SoundFunction name="SnapSignalSliding" soundmode="SnapSignalSliding_2"/>
+					<SoundFunction name="ShortPress" soundmode="ShortPress_2"/>
+				</SoundFunctionMapping>
+			</Sounds>
+			<Animations>
+				<!-- BO -->
+				<AnimationFunction name="StartUpAttraction" unitname="StartUpAttraction_2"/>
+				<AnimationFunction name="ProcessOngoing" unitname="ProcessOngoing_2"/>
+				<AnimationFunction name="ProgramRunningScreen" unitname="ProgramRunningScreen_2"/>
+				<!-- BO 
+				<AnimationFunction name="FunctionPhase" unitname="FunctionPhase_2"/>
+				<AnimationFunction name="FirmwareUpdate" unitname="FirmwareUpdate_2"/>-->
+			</Animations>
+		</OutputUnits>
+	</UIM-Domain_only>
+</IABO_Config>
